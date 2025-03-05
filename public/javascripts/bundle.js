@@ -25,7 +25,7 @@ eval("(function webpackUniversalModuleDefinition(root, factory) {\n\tif(true)\n\
   \*********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("__webpack_require__(/*! aframe */ \"./node_modules/aframe/dist/aframe-master.js\");\n\n//# sourceURL=webpack://museuvirtual-tremvirtual/./src/main.js?");
+eval("__webpack_require__(/*! aframe */ \"./node_modules/aframe/dist/aframe-master.js\");\n\n\n//# sourceURL=webpack://museuvirtual-tremvirtual/./src/main.js?");
 
 /***/ })
 

@@ -1,14 +1,21 @@
-# Museu Virtual (Trem Virtual)
+# Novo Museu Virtual (Trem Virtual)
 
+Este projeto foi reprojetado por Filipe Fernandes.
 
-## NOTA IMPORTANTE!
+## Trabalhos Relacionados
 
-Em 5/2/2025 este projeto foi redesenhado por Filipe Fernandes para atender aos requisitos básicos do desenvolvimento do projeto.
+- Acesse esse [site que lista 30 museus virtuais](https://educacao.sme.prefeitura.sp.gov.br/noticias/30-museus-virtuais-para-voce-visitar-sem-sair-de-casa/)
+- Faça uma análise de funcionalidades destes museus virtuais e salve [nesta planilha ](https://docs.google.com/spreadsheets/d/1cLrjxU_usPfNqVd43Tkb6Te5HVrMuZyO6V4CfmDqfn0/edit?usp=sharing)
 
-**Segue documentação das modificações**
-- A estrutura de pastas do projeto foi modificada baseada nas boas práticas de desenvolvimento. Para isto, o `express-generator` foi utlizado;
-- Instale o plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) no VsCode para facilitar a visualização de comentários no código
+**OBSERVAÇÃO**:
+- Somente deverão ser considerados museus virtuais como tour virtual. Exemplos: `Google Arts & Culture` e `Museu da Casa de Portinari`
+- Os museus que estiverem usando o `Google Art & Culture`, suas funcionalidades devem ser registradas na coluna `Google Art & Culture` 
+- Cada museu virtual deverá ser analisado a partir de 2 dispositivos: `Computador` e `Celular`. Registre as funcionalidades conforme as abas da planilha relacionada com o dispositivo.
 
+## Histórias do Usuário
+
+- Como um estudante, eu quero acessar o Museu Virtual para conhecer a história de Manhuaçu
+- ...
 
 ## Comandos
 - `npm start`: inicia o projeto no ambiente de produção
@@ -21,16 +28,8 @@ Em 5/2/2025 este projeto foi redesenhado por Filipe Fernandes para atender aos r
 - `npm install NOMEDOPACOTE`
 - Inserir em `/.src/main` `require('NOMEDOPACOTE');`
 
-## Dicas
 
-### Uso de .jade e .html
-
-Nos arquivos de rotas (`./routes`):
-- `res.render` use para renderizar arquivos `.jade`
-- `res.sendFile` use para renderizar arquivos `.html`
-
-
-## ESTRUTURA DE ARQUIVOS PARA MUNDOS VIRTUAIS
+## Estrutura de arquivos paras mundos virtuais
 
 - `./bin`: 
 - `./public`: 
@@ -47,3 +46,4 @@ Nos arquivos de rotas (`./routes`):
 - `package.json`: arquivo que contém os comandos e dependências do projeto
 - `README.MD`: contém intruções do projeto para o desenvolvedor
 - `webpack.config.js`: arquivo de configuração para compilação de bibliotecas .js
+
