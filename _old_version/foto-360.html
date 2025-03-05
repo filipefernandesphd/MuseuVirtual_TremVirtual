@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Virtual</title>
+
+    <!-- Importação do A-Frame -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="./javascript/mundo.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="foto-360" src="/assets/mato-360.avif">
+            <img id="passo1" src="/texto/passo1.png">
+            <img id="passo2" src="/texto/passo2.png">
+            <img id="passo3" src="/texto/passo3.png">
+            <img id="proximo" src="/texto/proximo.png">
+            <img id="finalizar" src="/texto/finalizar.png">
+
+        </a-assets>
+
+        <a-sky src="#foto-360"></a-sky>
+
+        <!-- Cursor para interação -->
+        <a-entity cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
+
+        <!-- Texto de movimentação -->
+        <a-image id="tutorial" src="#passo1" position="0 1.8 -6" width="2" height="1.5" scale="4 4 4"
+            rotation="0 0 0"></a-image>
+
+        <!-- Botão Próximo como imagem clicável -->
+        <a-image id="botao-proximo" src="#proximo" position="0 0.8 -6" width="1.5" height="0.75" scale="4 4 4"
+            class="clickable" tutorial ></a-image>
+
+        <!-- Câmera com controles de movimento -->
+        <a-entity id="camera" movement-controls="controls: checkpoint, keyboard" checkpoint-controls="mode: animate">
+            <a-entity camera="active: true" position="0 1.6 0" cursor="rayOrigin: mouse" wasd-controls
+                look-controls="pointerLockEnabled: true"></a-entity>
+        </a-entity>
+
+        <!-- Objeto de teste -->
+        <a-sphere position="0 0 -5" color="#F00" esfera scale="0.5 0.5 0.5"></a-sphere>
+    </a-scene>
+</body>
+
+</html>

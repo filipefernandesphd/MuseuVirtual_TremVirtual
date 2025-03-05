@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    a-scene
+        a-assets
+            img#foto-360(src="images/mato-360.avif")
+            img#passo1(src="images/textos/passo1.png")
+            img#passo2(src="images/textos/passo2.png")
+            img#passo3(src="images/textos/passo3.png")
+            img#proximo(src="images/textos/proximo.png")
+            img#finalizar(src="images/textos/finalizar.png")
+
+        a-sky(src="#foto-360")
+
+        //- Cursor para interação
+        a-entity(cursor="rayOrigin: mouse" raycaster="objects: .clickable")
+
+        //- Texto de movimentação
+        a-image#tutorial(src="#passo1" position="0 1.8 -6" width="2" height="1.5" scale="4 4 4" rotation="0 0 0")
+
+        //- Botão Próximo como imagem clicável
+        a-image#botao-proximo(src="#proximo" position="0 0.8 -6" width="1.5" height="0.75" scale="4 4 4" class="clickable" tutorial)
+
+        //- Câmera com controles de movimento
+        a-entity#camera(movement-controls="controls: checkpoint, keyboard" checkpoint-controls="mode: animate")
+            a-entity(camera="active: true" position="0 1.6 0" cursor="rayOrigin: mouse" wasd-controls look-controls="pointerLockEnabled: true")
+
+        // Objeto de teste
+        a-sphere(position="0 0 -5" color="#F00" esfera scale="0.5 0.5 0.5")

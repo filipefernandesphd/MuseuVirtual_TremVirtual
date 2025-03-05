@@ -1,0 +1,19 @@
+doctype html
+html(lang="pt-br")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= title
+
+    //- Bundle
+    script(src="javascripts/bundle.js") 
+
+    //- A--Frame Interactions 
+    script(src="javascripts/aframe-interactions-system.js") 
+
+    //BUG: esta URL não está funcionando
+    script(src="https://unpkg.com/aframe-checkpoint-controls@1.2.0/dist/aframe-checkpoint-controls.min.js")
+
+    script(src="javascripts/mundo.js")  
+  body
+    block content

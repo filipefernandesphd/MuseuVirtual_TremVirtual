@@ -1,0 +1,49 @@
+extends layout 
+
+block content
+    a-scene(stats="true" xr-mode-ui="cardboardModeEnabled:true" webxr="requiredFeatures: local-floor;" loaded="true" renderer="logarithmicDepthBuffer: true; antialias: false;")
+
+        //- Entidade pai para centralizar toda a cena
+        a-entity#scene-root(position="0 0 -6" scale="0.5 0.5 0.5")
+
+            //- Piso e teto do museu
+            a-plane(position="0 0.1 0" repeat="10 10" rotation="-90 0 0" width="45" height="30" src="images/pisoMuseu.jpg")
+            a-plane(position="0 10 0" repeat="10 10" rotation="90 0 0" width="45" height="30" src="images/pisoMuseu.jpg")
+
+            //- Colunas
+            each pos in ["20 0.1 10", "20 0.1 -10", "-20 0.1 10", "-20 0.1 -10"]
+                a-entity(gltf-model="#coluna" scale="5 5 5" position=pos)
+
+            //- Portas
+            each porta in [["-22.4 0.1 -5", "271"], ["-22.4 0.1 5", "271"], ["22.4 0.1 -5", "90"], ["22.4 0.1 5", "90"]]
+                a-entity(gltf-model="#porta" rotate-door class="clickable" scale="2.5 2.5 2.5" position=porta[0] rotation="0 #{porta[1]} 0")
+
+            //- Paredes
+            each parede in [["0 5 15", "-180"], ["0 5 -15", "0"], ["-22.5 5 0", "90"], ["22.5 5 0", "-90"]]
+                a-plane(position=parede[0] rotation="0 #{parede[1]} 0" width="45" height="10" src="images/texturaParede.jpg")
+
+            //- Imagens clicáveis
+            each imagem in [["-22.4 1.5 -5.1", "90", "historia.jpg"], ["-22.4 1.5 4.9", "90", "cafe.png"], ["22.4 1.5 -4.9", "270", "leopoldina_railway.jpg"], ["22.4 1.5 5.1", "270", "distri.jpg"]]
+                a-plane(class="clickable" width="0.85" height="2.7" scale="2.5 2.5 2.5" src="images/#{imagem[2]}" position=imagem[0] rotation="0 #{imagem[1]} 0")
+
+            //- Textos
+            a-image(src="images/textos/BemVindo.png" position="0 1.6 5" width="2" height="1.5" scale="6 6 6" animation="property: position; to: 0 2.2 5; dur: 1500; loop: true; dir: alternate")
+            a-image(src="images/textos/historiadoCafe.png" position="-22.3 6 1.8" width="2" height="1.5" scale="6 6 6" rotation="0 90 0")
+
+        //- Pontos interativos
+        each pos in ["0 0.15 -3", "4 0.15 -3", "-4 0.15 -3", "7 0.15 -3", "-7 0.15 -3", "7 0.15 -9", "-7 0.15 -9", "4 0.15 -9", "-4 0.15 -9", "0 0.15 -5", "0 0.15 -7", "0 0.15 -9"]
+            a-circle(checkpoint click-component-test class="clickable" position=pos radius="0.4" color="#EF2D5E" rotation="-90 0 0")
+
+        //- Elementos globais
+        a-sky(color="#C0D8E0")
+        a-entity(cursor="rayOrigin: mouse" raycaster="objects: .clickable")
+        a-entity#camera(movement-controls="controls: checkpoint, keyboard" checkpoint-controls="mode: animate")
+            a-entity(camera="active: true" position="0 1.6 0" rotate="0 90 0" cursor="rayOrigin: mouse" wasd-controls look-controls="pointerLockEnabled: false")
+
+        a-image(src="#mapa" rotation="0 0 0" position="0 1.6 -13.3" width="1.5" height="0.75" scale="3 3 3" class="clickable")
+
+        //- Assets
+        a-assets
+            a-asset-item(id="coluna" src="3dmodels/base_basic_shaded.glb")
+            a-asset-item(id="porta" src="3dmodels/porta.glb")
+            img#mapa(src="/images/mapaManhu.png")
